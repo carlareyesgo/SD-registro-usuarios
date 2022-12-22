@@ -1,23 +1,20 @@
-import { Alert } from "react-bootstrap";
+import { Link, Route, Routes } from 'react-router-dom';
+import RegistroPage from './pages/RegistroPage';
+
+import { publicRoutes } from './router';
 
 function App() {
+
   return (
-    <>
-      {[
-        'primary',
-        'secondary',
-        'success',
-        'danger',
-        'warning',
-        'info',
-        'light',
-        'dark',
-      ].map((variant) => (
-        <Alert key={variant} variant={variant}>
-          This is a {variant} alert—check it out!
-        </Alert>
-      ))}
-    </>
+    <div>
+      <Link to='/'>Home</Link>
+      <br />
+      <Link to='/registro'>Registro</Link>
+      <br />
+      <Routes>
+        {publicRoutes.map((route) => <Route {...route} />)}
+      </Routes>
+    </div>
   );
 }
 
