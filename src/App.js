@@ -12,7 +12,7 @@ function App() {
       <NavbarComponent />
       <Container >
         <Routes>
-          {publicRoutes.map((route) => <Route {...route} />)}
+          {publicRoutes.map((route, index) => <Route key={index} {...route} />)}
         </Routes>
       </Container>
     </>
