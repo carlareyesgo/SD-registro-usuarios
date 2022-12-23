@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import List from "../components/List";
 import { deleteUser, getUsers } from "../services/users";
+import { buildNotification } from "../utils";
 
 const ListaUsuariosPage = () => {
     const [userList, setUserList] = useState([]);
@@ -13,6 +14,11 @@ const ListaUsuariosPage = () => {
     const deleteHandler = (index) => {
         const newUserList = deleteUser(index);
         setUserList(newUserList);
+        buildNotification({
+            title: 'Eliminado correctamente',
+            type: 'danger',
+            message: 'Se ha eliminado al usuario.',
+        })
     }
 
     return (<>
