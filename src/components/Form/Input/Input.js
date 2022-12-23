@@ -1,4 +1,5 @@
 import { FloatingLabel, Form } from "react-bootstrap";
+import ErrorList from "./ErrorList/ErrorList";
 
 const Input = ({ input, onChangeHandler, touchedHandler }) => {
     return (
@@ -7,9 +8,16 @@ const Input = ({ input, onChangeHandler, touchedHandler }) => {
                 label={input.label}
                 className="mb-3"
             >
-                <Form.Control type="text" placeholder="name@example.com" min={5} value={input.value} onChange={(event)=>onChangeHandler(event, input.id)} />
+                <Form.Control
+                    type="text"
+                    placeholder="name@example.com"
+                    min={5}
+                    value={input.value}
+                    onChange={(event) => onChangeHandler(event, input.id)}
+                    onBlur={(event) => touchedHandler(event, input.id)}
+                />
             </FloatingLabel>
-            <label className="h6 text-danger">{input.invalidMessage}</label>
+            {input.isTouched && !input.isValid && <ErrorList validationRules={input.validationRules} />}
         </>
     )
 }

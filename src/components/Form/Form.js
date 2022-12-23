@@ -15,7 +15,7 @@ import Input from "./Input/Input";
 const FormComponent = ({ inputs }) => {
     const [formInputs, setFormInputs] = useState([
         {
-            id: 8123480234,
+            id: 1,
             label: 'Nombre(s)',
             isTouched: false,
             validationRules: [
@@ -39,37 +39,16 @@ const FormComponent = ({ inputs }) => {
                 }
             ],
             isValid: false,
-            value: 'Mario',
-        },
-        {
-            id: 3,
-            label: 'Nombre(s)',
-            isTouched: false,
-            validationRules: [
-                {
-                    type: 'required',
-                    ruleFactor: true,
-                    errorMessage: 'El nombre es un dato requerido.',
-                    isValid: false,
-                },
-                {
-                    type: 'min',
-                    ruleFactor: 3,
-                    errorMessage: 'El nombre debe contener al menos 3 caracteres.',
-                    isValid: false,
-                },
-                {
-                    type: 'regex',
-                    ruleFactor: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/g,
-                    errorMessage: 'El nombre sólo puede contener letras.',
-                    isValid: false,
-                }
-            ],
-            isValid: false,
-            value: 'Pedro',
+            value: '',
         },
     ]);
-    const touchedHandler = () => { };
+    const touchedHandler = (event, id) => {
+        const oldFormInputs = [...formInputs];
+        const indexInput = oldFormInputs.findIndex((input) => input.id === id);
+        oldFormInputs[indexInput].isTouched = true;
+        setFormInputs(oldFormInputs);
+    };
+
     const validationHandler = (input) => {
         const { value, validationRules } = input;
         let valueIsValid = true;
@@ -80,6 +59,7 @@ const FormComponent = ({ inputs }) => {
         });
         input.isValid = valueIsValid;
     };
+
     const onChangeHandler = (event, id) => {
         const oldFormInputs = [...formInputs];
         const indexInput = oldFormInputs.findIndex((input) => input.id === id);
