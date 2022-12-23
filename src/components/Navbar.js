@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { Navbar, Container, Offcanvas, Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { publicRoutes } from '../router';
 import imgLogo from '../assets/img/logo.svg';
 
 const NavbarComponent = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const toggleMenu = () => setMenuOpen(!menuOpen);
+
+    const activeStyle = {
+        textDecoration: "underline",
+        color: 'green',
+        fontWeight: "bold",
+    };
 
     return (
         <Navbar bg="light" className="mb-3" expand='lg' collapseOnSelect>
@@ -27,7 +33,19 @@ const NavbarComponent = () => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav className="justify-content-end flex-grow-1 pe-3">
-                            {publicRoutes.filter((route) => route.title).map((route, index) => <Nav.Link key={index} as={Link} to={route.path} onClick={() => { setMenuOpen(false) }}>{route.title}</Nav.Link>)}
+                            {
+                                publicRoutes
+                                    .filter((route) => route.title)
+                                    .map((route, index) => (
+                                        <Nav.Link
+                                            style={({ isActive }) => isActive ? activeStyle : undefined}
+                                            active
+                                            key={index}
+                                            as={NavLink}
+                                            to={route.path}
+                                            onClick={() => { setMenuOpen(false) }}>{route.title}
+                                        </Nav.Link>
+                                    ))}
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>
