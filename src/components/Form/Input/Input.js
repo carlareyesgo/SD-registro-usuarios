@@ -33,7 +33,7 @@ const Input = ({ input, onChangeHandler, touchedHandler }) => {
                                 label={option.label}
                                 name={input.label.replaceAll(' ', '-')}
                                 type={input.type}
-                                value={option.key}
+                                defaultChecked={option.key === input.value}
                                 onChange={(event) => {
                                     onChangeHandler(event, input.id);
                                     touchedHandler(input.id);

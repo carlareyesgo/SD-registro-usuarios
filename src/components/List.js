@@ -1,10 +1,12 @@
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
+import { useNavigate } from "react-router";
 
-const List = ({ list }) => {
+const List = ({ list, detailsPath, deleteHandler }) => {
     const headers = list.length ? Object.keys(list[0]) : [];
+    const navigate = useNavigate();
 
     return (
-        <Table striped bordered hover>
+        <Table striped bordered hover className="text-center">
             <thead>
                 <tr>
                     <th>#</th>
@@ -13,11 +15,14 @@ const List = ({ list }) => {
                 </tr>
             </thead>
             <tbody>
-                {list.map((element, index) => (
-                    <tr key={index}>
-                        <td>{index + 1}</td>
-                        {headers.map((header, index) => <td key={index}>{element[header]}</td>)}
-                        <td>Info</td>
+                {list.map((element, indexRow) => (
+                    <tr key={indexRow}>
+                        <td>{indexRow + 1}</td>
+                        {headers.map((header, indexCol) => <td key={indexCol}>{element[header]}</td>)}
+                        <td>
+                            <Button className="me-3" variant="info" onClick={() => { navigate(detailsPath.replace(':id', indexRow + 1)) }}>Editar </Button>
+                            <Button variant="danger" onClick={() => { deleteHandler(indexRow) }}>Eliminar </Button>
+                        </td>
                     </tr>
                 )
                 )}

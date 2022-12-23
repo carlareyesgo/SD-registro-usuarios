@@ -1,7 +1,7 @@
 import { Button, Form } from "react-bootstrap";
 import Input from "./Input/Input";
 
-const FormComponent = ({ formInputs, onSubmitHandler, touchedHandler, onChangeHandler, isButtonInactive }) => {
+const FormComponent = ({ formInputs, onSubmitHandler, touchedHandler, onChangeHandler, isButtonInactive, textButton, variantButton }) => {
     return (
         <Form onSubmit={onSubmitHandler}>
             {formInputs.map((input) => (
@@ -17,8 +17,9 @@ const FormComponent = ({ formInputs, onSubmitHandler, touchedHandler, onChangeHa
             <Button
                 type="submit"
                 disabled={isButtonInactive}
+                variant={variantButton}
             >
-                Registrar
+                {textButton}
             </Button>
         </Form>
     )

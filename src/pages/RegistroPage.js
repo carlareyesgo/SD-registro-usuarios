@@ -137,7 +137,7 @@ const RegistroPage = () => {
                 {
                     type: 'regex',
                     ruleFactor: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-                    errorMessage: 'El correo sólo puede contener letras.',
+                    errorMessage: 'El correo no tiene un formato válido.',
                     isValid: false,
                 }
             ],
@@ -215,13 +215,18 @@ const RegistroPage = () => {
     }
 
     return (
-        <FormComponent
-            formInputs={formInputs || []}
-            onSubmitHandler={onSubmitHandler}
-            touchedHandler={touchedHandler}
-            onChangeHandler={onChangeHandler}
-            isButtonInactive={isButtonInactive}
-        />
+        <>
+            <h1>Nuevo Usuario</h1>
+            <FormComponent
+                formInputs={formInputs}
+                onSubmitHandler={onSubmitHandler}
+                touchedHandler={touchedHandler}
+                onChangeHandler={onChangeHandler}
+                isButtonInactive={isButtonInactive}
+                textButton='Guardar'
+                variantButton='primary'
+            />
+        </>
     );
 }
 
