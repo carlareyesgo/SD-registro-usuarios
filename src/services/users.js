@@ -18,3 +18,10 @@ export const updateUser = (data, index) => {
     userList[index] = data;
     localStorage.setItem('users', JSON.stringify(userList));
 }
+
+export const deleteUser = (index) => {
+    const userList = JSON.parse(localStorage.getItem('users'));
+    userList.splice(index, 1)
+    localStorage.setItem('users', JSON.stringify(userList));
+    return userList;
+}
