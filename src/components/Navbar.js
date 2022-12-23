@@ -27,7 +27,7 @@ const NavbarComponent = () => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav className="justify-content-end flex-grow-1 pe-3">
-                            {publicRoutes.map((route, index) => <Nav.Link key={index} as={Link} to={route.path} onClick={toggleMenu}>{route.title}</Nav.Link>)}
+                            {publicRoutes.map((route, index) => <Nav.Link key={index} as={Link} to={route.path} onClick={() => { setMenuOpen(false) }}>{route.title}</Nav.Link>)}
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>

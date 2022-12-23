@@ -1,3 +1,4 @@
+import ListaUsuariosPage from "../pages/ListaUsuariosPage";
 import RegistroPage from "../pages/RegistroPage";
 
 export const publicRoutes = [
@@ -10,5 +11,10 @@ export const publicRoutes = [
         path: '/registro',
         element: <RegistroPage />,
         title:'Registro'
+    },
+    {
+        path: '/usuarios',
+        element: <ListaUsuariosPage />,
+        title:'Lista de Usuarios'
     },
 ]

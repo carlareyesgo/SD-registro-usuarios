@@ -1,7 +1,6 @@
 import { Container } from 'react-bootstrap';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import NavbarComponent from './components/Navbar';
-import RegistroPage from './pages/RegistroPage';
 
 import { publicRoutes } from './router';
 
