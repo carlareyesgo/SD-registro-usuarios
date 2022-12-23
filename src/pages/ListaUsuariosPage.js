@@ -14,7 +14,7 @@ const ListaUsuariosPage = () => {
 
     useEffect(() => {
         const users = getUsers();
-        if(!users.length){
+        if (!users.length) {
             buildNotification({
                 title: 'Aún no hay usuarios',
                 type: 'danger',
@@ -35,6 +35,9 @@ const ListaUsuariosPage = () => {
             message: 'Se ha eliminado al usuario.',
         })
         setShow(false)
+        if (!newUserList.length) {
+            navigation('/')
+        }
     }
 
     return (<>
