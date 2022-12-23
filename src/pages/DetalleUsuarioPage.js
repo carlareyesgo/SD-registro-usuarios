@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import FormComponent from "../components/Form/Form";
 import { getUser, updateUser } from "../services/users";
-import { rulesHandler } from "../utils";
+import { buildNotification, rulesHandler } from "../utils";
 
 const DetalleUsuarioPage = () => {
     const [userInputs, setUserInputs] = useState([]);
@@ -220,6 +220,11 @@ const DetalleUsuarioPage = () => {
         });
         updateUser(formEntries, id - 1);
         setIsButtonInactive(true);
+        buildNotification({
+            title: 'Actualizado correctamente',
+            type: 'warning',
+            message: 'Se ha guardado al usuario.',
+        })
     }
 
     useEffect(() => {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FormComponent from "../components/Form/Form";
 import { saveUser } from "../services/users";
-import { rulesHandler } from "../utils";
+import { buildNotification, rulesHandler } from "../utils";
 
 const RegistroPage = () => {
     const formInputsInit = [
@@ -212,6 +212,11 @@ const RegistroPage = () => {
         saveUser(formEntries)
         setFormInputs(formInputsInit);
         setIsButtonInactive(true);
+        buildNotification({
+            title: 'Guardado correctamente',
+            type: 'success',
+            message: 'Se ha guardado al usuario.',
+        })
     }
 
     return (
