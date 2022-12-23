@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FormComponent from "../components/Form/Form";
+import { saveUser } from "../services/users";
 import { rulesHandler } from "../utils";
 
 const RegistroPage = () => {
@@ -209,7 +210,7 @@ const RegistroPage = () => {
             formEntries[input.key] = input.value;
         })
         console.log(formEntries);
-        // TODO: SAVE
+        saveUser(formEntries)
         setFormInputs(formInputsInit);
         setIsButtonInactive(true);
     }
