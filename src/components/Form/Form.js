@@ -33,7 +33,7 @@ const FormComponent = ({ inputs }) => {
                 },
                 {
                     type: 'regex',
-                    ruleFactor: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
+                    ruleFactor: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/g,
                     errorMessage: 'El nombre sólo puede contener letras.',
                     isValid: false,
                 }
@@ -45,7 +45,7 @@ const FormComponent = ({ inputs }) => {
             id: 3,
             label: 'Nombre(s)',
             isTouched: false,
-            validation: [
+            validationRules: [
                 {
                     type: 'required',
                     ruleFactor: true,
@@ -60,11 +60,12 @@ const FormComponent = ({ inputs }) => {
                 },
                 {
                     type: 'regex',
-                    ruleFactor: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
+                    ruleFactor: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/g,
                     errorMessage: 'El nombre sólo puede contener letras.',
                     isValid: false,
                 }
             ],
+            isValid: false,
             value: 'Pedro',
         },
     ]);
