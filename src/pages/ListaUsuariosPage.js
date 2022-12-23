@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import List from "../components/List";
 import { deleteUser, getUsers } from "../services/users";
 import { buildNotification } from "../utils";
 
 const ListaUsuariosPage = () => {
+    const navigation = useNavigate();
     const [userList, setUserList] = useState([]);
     const [show, setShow] = useState(false);
 
@@ -11,7 +13,16 @@ const ListaUsuariosPage = () => {
     const closeHandle = () => setShow(false);
 
     useEffect(() => {
-        setUserList(getUsers());
+        const users = getUsers();
+        if(!users.length){
+            buildNotification({
+                title: 'Aún no hay usuarios',
+                type: 'danger',
+                message: 'Agrega tu primer usuario.',
+            })
+            navigation('/')
+        }
+        setUserList(users);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

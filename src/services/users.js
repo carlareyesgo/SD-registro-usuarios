@@ -5,22 +5,22 @@ export const saveUser = (data) => {
 }
 
 export const getUsers = () => {
-    return JSON.parse(localStorage.getItem('users'));
+    return JSON.parse(localStorage.getItem('users')) || [];
 }
 
 export const getUser = (index) => {
-    const userList = JSON.parse(localStorage.getItem('users'));
+    const userList = JSON.parse(localStorage.getItem('users')) || [];
     return userList[index];
 }
 
 export const updateUser = (data, index) => {
-    const userList = JSON.parse(localStorage.getItem('users'));
+    const userList = JSON.parse(localStorage.getItem('users')) || [];
     userList[index] = data;
     localStorage.setItem('users', JSON.stringify(userList));
 }
 
 export const deleteUser = (index) => {
-    const userList = JSON.parse(localStorage.getItem('users'));
+    const userList = JSON.parse(localStorage.getItem('users')) || [];
     userList.splice(index, 1)
     localStorage.setItem('users', JSON.stringify(userList));
     return userList;

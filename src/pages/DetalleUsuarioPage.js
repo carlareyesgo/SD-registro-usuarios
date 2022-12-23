@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import FormComponent from "../components/Form/Form";
 import { getUser, updateUser } from "../services/users";
 import { buildNotification, rulesHandler } from "../utils";
 
 const DetalleUsuarioPage = () => {
+    const navigation = useNavigate();
     const [userInputs, setUserInputs] = useState([]);
     const [isButtonInactive, setIsButtonInactive] = useState(false);
 
@@ -12,6 +13,16 @@ const DetalleUsuarioPage = () => {
 
     const buildInputs = () => {
         const userInfo = getUser(id - 1);
+        if (!userInfo) {
+            buildNotification({
+                title: 'Aún no hay usuarios',
+                type: 'danger',
+                message: 'Agrega tu primer usuario.',
+            })
+            navigation('/')
+            return;
+        }
+
 
         setUserInputs([
             {
