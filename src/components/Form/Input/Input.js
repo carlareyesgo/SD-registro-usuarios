@@ -38,7 +38,7 @@ const Input = ({ input, onChangeHandler, touchedHandler }) => {
                                     onChangeHandler(event, input.id);
                                     touchedHandler(input.id);
                                 }}
-                                value={input.value}
+                                value={option.key}
                                 isInvalid={input.isTouched && !input.isValid}
                                 isValid={input.isTouched && input.isValid}
                             />
