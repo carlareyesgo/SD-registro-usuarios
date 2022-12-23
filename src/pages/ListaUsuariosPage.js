@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Button, Modal } from "react-bootstrap";
 import List from "../components/List";
 import { deleteUser, getUsers } from "../services/users";
 import { buildNotification } from "../utils";
