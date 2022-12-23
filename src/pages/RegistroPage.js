@@ -209,7 +209,6 @@ const RegistroPage = () => {
         formInputs.forEach((input) => {
             formEntries[input.key] = input.value;
         })
-        console.log(formEntries);
         saveUser(formEntries)
         setFormInputs(formInputsInit);
         setIsButtonInactive(true);

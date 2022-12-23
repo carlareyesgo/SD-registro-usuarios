@@ -13,16 +13,14 @@ const List = ({ list }) => {
                 </tr>
             </thead>
             <tbody>
-                {list.map((element, index) => {
-                    return (
-                        <tr>
-                            <td>{index + 1}</td>
-                            {headers.map((header) => <td>{element[header]}</td>)}
-                            <td>Info</td>
-                        </tr>
-                    )
-
-                })}
+                {list.map((element, index) => (
+                    <tr key={index}>
+                        <td>{index + 1}</td>
+                        {headers.map((header, index) => <td key={index}>{element[header]}</td>)}
+                        <td>Info</td>
+                    </tr>
+                )
+                )}
             </tbody>
         </Table>
     )
