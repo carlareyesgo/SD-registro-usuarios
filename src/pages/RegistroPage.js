@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FormComponent from "../components/Form/Form";
 import { saveUser } from "../services/users";
 import { buildNotification, rulesHandler } from "../utils";
@@ -218,6 +218,11 @@ const RegistroPage = () => {
             message: 'Se ha guardado al usuario.',
         })
     }
+
+    useEffect(() => {
+        document.title = 'SD | Registro Usuario'
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <>

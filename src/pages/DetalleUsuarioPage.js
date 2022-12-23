@@ -229,7 +229,7 @@ const DetalleUsuarioPage = () => {
         userInputs.forEach((input) => {
             formEntries[input.key] = input.value;
         });
-        updateUser(formEntries, id - 1);
+        updateUser(formEntries, id);
         setIsButtonInactive(true);
         buildNotification({
             title: 'Actualizado correctamente',
@@ -240,6 +240,7 @@ const DetalleUsuarioPage = () => {
 
     useEffect(() => {
         buildInputs();
+        document.title = 'SD | Detalle Usuario'
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

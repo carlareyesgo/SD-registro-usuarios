@@ -23,6 +23,7 @@ const ListaUsuariosPage = () => {
             navigation('/')
         }
         setUserList(users);
+        document.title = 'SD | Usuarios'
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

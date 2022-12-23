@@ -27,6 +27,5 @@ export const publicRoutes = [
     {
         path: '*',
         element: <Navigate to="/" />,
-        title: 'Acerca de'
     },
 ]

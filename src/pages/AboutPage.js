@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+
 const AboutPage = () => {
+    useEffect(()=>{
+        document.title = 'SD | Acerca de'
+    }, [])
     return (
         <>
             <h1>Bienvenido a mi página!</h1>
