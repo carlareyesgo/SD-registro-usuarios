@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Modal, Table } from "react-bootstrap";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const List = ({ list, detailsPath, deleteHandler, show, showHandle, closeHandle }) => {
     const [userIndex, setUserIndex] = useState(-1);

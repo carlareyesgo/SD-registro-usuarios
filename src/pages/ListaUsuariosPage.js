@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import List from "../components/List";
 import { deleteUser, getUsers } from "../services/users";
 import { buildNotification } from "../utils";
