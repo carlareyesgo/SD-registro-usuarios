@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+
+// React Router DOM
+import { BrowserRouter } from 'react-router-dom';
+
+// React Notifications
+import { ReactNotifications } from 'react-notifications-component'
+
+// Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// React Notifications - CSS
+import 'react-notifications-component/dist/theme.css'
+import 'animate.css/animate.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <ReactNotifications />
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
