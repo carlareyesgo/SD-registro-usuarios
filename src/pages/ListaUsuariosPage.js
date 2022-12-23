@@ -7,11 +7,12 @@ const ListaUsuariosPage = () => {
 
     useEffect(() => {
         setUserList(getUsers());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (<>
         <h1>Usuarios</h1>
-        <List list={userList} detailsPath='/usuarios/:id'/>
+        <List list={userList} detailsPath='/usuarios/:id' />
     </>)
 }
 

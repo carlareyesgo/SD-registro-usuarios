@@ -5,7 +5,6 @@ const List = ({ list, detailsPath }) => {
     const headers = list.length ? Object.keys(list[0]) : [];
     const navigate = useNavigate();
 
-
     return (
         <Table striped bordered hover>
             <thead>
@@ -20,7 +19,7 @@ const List = ({ list, detailsPath }) => {
                     <tr key={indexRow}>
                         <td>{indexRow + 1}</td>
                         {headers.map((header, indexCol) => <td key={indexCol}>{element[header]}</td>)}
-                        <td><Button variant="info" onClick={() => { navigate(detailsPath.replace(':id', indexRow)) }}>Detalles </Button></td>
+                        <td><Button variant="info" onClick={() => { navigate(detailsPath.replace(':id', indexRow + 1)) }}>Detalles </Button></td>
                     </tr>
                 )
                 )}
