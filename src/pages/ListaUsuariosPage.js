@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
+import { Button, Modal } from "react-bootstrap";
 import List from "../components/List";
 import { deleteUser, getUsers } from "../services/users";
 import { buildNotification } from "../utils";
 
 const ListaUsuariosPage = () => {
     const [userList, setUserList] = useState([]);
+    const [show, setShow] = useState(false);
+
+    const showHandle = () => setShow(true);
+    const closeHandle = () => setShow(false);
 
     useEffect(() => {
         setUserList(getUsers());
@@ -19,6 +24,7 @@ const ListaUsuariosPage = () => {
             type: 'danger',
             message: 'Se ha eliminado al usuario.',
         })
+        setShow(false)
     }
 
     return (<>
@@ -27,6 +33,9 @@ const ListaUsuariosPage = () => {
             list={userList}
             detailsPath='/usuarios/:id'
             deleteHandler={deleteHandler}
+            show={show}
+            showHandle={showHandle}
+            closeHandle={closeHandle}
         />
     </>)
 }
