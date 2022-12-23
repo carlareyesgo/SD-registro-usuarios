@@ -36,7 +36,7 @@ const RegistroPage = () => {
         },
         {
             id: 2,
-            key: 'aPaterno',
+            key: 'apellido-paterno',
             type: 'text',
             label: 'Apellido Paterno',
             isTouched: false,
@@ -66,7 +66,7 @@ const RegistroPage = () => {
         {
             id: 3,
             type: 'text',
-            key: 'aMaterno',
+            key: 'apellido-materno',
             label: 'Apellido Materno',
             isTouched: false,
             validationRules: [
