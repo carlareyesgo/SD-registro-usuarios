@@ -12,7 +12,7 @@ const DetalleUsuarioPage = () => {
     const { id } = useParams();
 
     const buildInputs = () => {
-        const userInfo = getUser(id - 1);
+        const userInfo = getUser(id);
         if (!userInfo) {
             buildNotification({
                 title: 'Aún no hay usuarios',
