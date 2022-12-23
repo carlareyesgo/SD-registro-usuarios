@@ -215,13 +215,16 @@ const RegistroPage = () => {
     }
 
     return (
-        <FormComponent
-            formInputs={formInputs || []}
-            onSubmitHandler={onSubmitHandler}
-            touchedHandler={touchedHandler}
-            onChangeHandler={onChangeHandler}
-            isButtonInactive={isButtonInactive}
-        />
+        <>
+            <h1>Nuevo Usuario</h1>
+            <FormComponent
+                formInputs={formInputs || []}
+                onSubmitHandler={onSubmitHandler}
+                touchedHandler={touchedHandler}
+                onChangeHandler={onChangeHandler}
+                isButtonInactive={isButtonInactive}
+            />
+        </>
     );
 }
 

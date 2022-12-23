@@ -11,7 +11,7 @@ const ListaUsuariosPage = () => {
 
     return (<>
         <h1>Usuarios</h1>
-        <List list={userList} />
+        <List list={userList} detailsPath='/usuarios/:id'/>
     </>)
 }
 
